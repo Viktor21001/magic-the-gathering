@@ -11,6 +11,7 @@ module.exports = function Login() {
       <hr />
       <form action="/login" method="POST" id="loginForm">
         <label htmlFor="loginInput" className="form-label">
+          Логин
           <input
             name="login"
             type="text"
@@ -20,7 +21,9 @@ module.exports = function Login() {
             required
           />
         </label>
+
         <label htmlFor="passwordInput" className="form-label">
+          Пароль
           <input
             name="password"
             type="password"
@@ -30,11 +33,10 @@ module.exports = function Login() {
             required
           />
         </label>
-        <label className="form-label">
-          <button type="submit" className="btn btn-primary shadow rounded">
-            Войти
-          </button>
-        </label>
+
+        <button type="submit" className="btn btn-primary shadow rounded">
+          Войти
+        </button>
       </form>
       <hr />
       <h3 style={{ textAlign: 'center' }} className="regMsg"> </h3>

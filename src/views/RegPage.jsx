@@ -11,6 +11,7 @@ module.exports = function Register({ login }) {
       <hr />
       <form action="/reg" method="POST" id="regForm">
         <label htmlFor="regInput" className="form-label">
+          Логин
           <input
             name="login"
             type="text"
@@ -20,7 +21,9 @@ module.exports = function Register({ login }) {
             required
           />
         </label>
+
         <label htmlFor="regEmailInput" className="form-label">
+          Email
           <input
             name="email"
             type="email"
@@ -30,7 +33,21 @@ module.exports = function Register({ login }) {
             required
           />
         </label>
+
+        <label htmlFor="regInput" className="form-label">
+          Город
+          <input
+            name="town"
+            type="text"
+            className="form-control shadow rounded"
+            id="regInput"
+            placeholder="Введите ваш логин:"
+            required
+          />
+        </label>
+
         <label htmlFor="regPassInput" className="form-label">
+          Пароль
           <input
             name="password"
             type="password"
@@ -40,11 +57,10 @@ module.exports = function Register({ login }) {
             required
           />
         </label>
-        <label className="form-label">
-          <button type="submit" className="btn btn-primary shadow rounded">
-            Зарегистрироваться
-          </button>
-        </label>
+
+        <button type="submit" className="btn btn-primary shadow rounded">
+          Зарегистрироваться
+        </button>
       </form>
       <hr />
       <h3 style={{ textAlign: 'center' }} className="regMsg">

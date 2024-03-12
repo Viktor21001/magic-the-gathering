@@ -21,7 +21,6 @@ module.exports = function Layout({ children, login }) {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="/css/style.css" />
-        <script defer src="/js/index.js" />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -46,7 +45,6 @@ module.exports = function Layout({ children, login }) {
           >
             <div className="container-fluid">
               <a className="navbar-brand" href="/">
-                {/* <img src="/assets/house_8ue6x389uk3a.svg" alt="mainLogo" /> */}
                 Magic: The Gathering
               </a>
               <button
@@ -62,11 +60,14 @@ module.exports = function Layout({ children, login }) {
               </button>
               <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                  <a className="nav-link" href="/logout">
-                    Выйти
+                  <a className="nav-link" href="/basket">
+                    Корзина
                   </a>
                   <a className="nav-link" href={`/user/${login}`}>
-                    {login}
+                    Личный кабинет
+                  </a>
+                  <a className="nav-link" href="/logout">
+                    Выйти
                   </a>
                 </div>
               </div>
@@ -110,15 +111,9 @@ module.exports = function Layout({ children, login }) {
       <body>
         <div className="bodyMainContent">{children}</div>
       </body>
-      {login ? (
-        <footer className="footer">
-          <div>Copyright © 2024</div>
-        </footer>
-      ) : (
-        <footer className="footer">
-          <div>Copyright © 2024</div>
-        </footer>
-      )}
+      <footer className="footer">
+        <div>Copyright © 2024</div>
+      </footer>
     </html>
   );
 };
