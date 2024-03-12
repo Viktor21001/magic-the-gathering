@@ -1,4 +1,4 @@
-// console.log('Скрипт подключен');
+console.log('Скрипт подключен');
 
 // document.getElementById('themeToggle').addEventListener('click', () => {
 //   const currentTheme = document.body.className;
