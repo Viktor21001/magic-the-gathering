@@ -8,6 +8,7 @@
     "dev": "nodemon src/app.js --ext js,jsx --ignore sessions",
     "remig": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate && npx sequelize db:seed:all",
     "dbinit": "npx sequelize-cli init",
+    "initdb2": " npx sequelize db:create && npx sequelize db:migrate:undo:all && npx sequelize db:migrate && npx sequelize db:seed:all",
     "dbRebuild": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
   "keywords": [],
