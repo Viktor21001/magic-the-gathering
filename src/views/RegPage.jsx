@@ -37,7 +37,7 @@ module.exports = function Register({ login }) {
         <label htmlFor="regInput" className="form-label">
           Город
           <input
-            name="town"
+            name="city"
             type="text"
             className="form-control shadow rounded"
             id="regInput"
