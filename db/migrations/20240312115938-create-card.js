@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      cadrName: {
+      cardName: {
         allowNull: false,
         type: Sequelize.STRING,
       },

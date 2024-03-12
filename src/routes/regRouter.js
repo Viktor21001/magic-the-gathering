@@ -10,7 +10,9 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { login, email, password, city } = req.body;
+    const {
+      login, email, city, password,
+    } = req.body;
     const user = await User.findOne({ where: { login } });
     if (user) {
       res.json({
@@ -18,9 +20,11 @@ router.post('/', async (req, res) => {
       });
     } else {
       const hash = await bcrypt.hash(password, 10);
-      const newUser = await User.create({ login, email, password: hash, city });
+      const newUser = await User.create({
+        login, email, city, password: hash,
+      });
       req.session.login = newUser.login;
-      req.session.userId = newUser.id;
+      // req.session.userId = newUser.id;
       req.session.save(() => {
         res.json({ regDone: 'Регистрация прошла успешно', id: newUser.id });
       });
