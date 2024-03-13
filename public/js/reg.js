@@ -19,12 +19,15 @@ form.addEventListener('submit', async (e) => {
 
     if (result.regDone) {
       logMsg.innerText = 'Регистрация прошла успешно';
+      const userData = jwt_decode(result.token);
+      console.log('Данные пользователя из токена:', userData);
       setTimeout(() => {
         window.location.href = '/';
       }, 1000);
     }
     if (result.err) {
-      logMsg.innerText = 'Пользователь с таким логином или почтой уже существует';
+      logMsg.innerText =
+        'Пользователь с таким логином или почтой уже существует';
     }
   } catch (error) {
     console.log('Ошибка:', error);
