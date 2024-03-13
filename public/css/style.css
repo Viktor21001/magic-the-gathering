@@ -169,6 +169,8 @@
 
 body {
   background-image: url('/media/background.jpg');
+  /* background-image: url('/media/beckground.gif'); */
+  /* background-image: url('/media/beckground1.gif'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
