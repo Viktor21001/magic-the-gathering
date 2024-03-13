@@ -1,48 +1,27 @@
-const React = require('react');
-const Layout = require('./Layout');
-const Card = require('./components/Card');
+const React = require("react");
+const Layout = require("./Layout");
+const CardPage = require("./components/Card");
 
-module.exports = function Basket({ login, cards }) {
+module.exports = function Basket({ login, baskets }) {
   return (
     <Layout login={login}>
       <div className="basket">
         <div className="basket-conteiner">
-          <span className="basket-header">ЗАходим </span>
-          <p>Артикул: </p>
-          {/* <img src={orderInfo.Item.itemPhotoLink} alt="itemphoto" /> */}
-          <div className="card-content" />
-          {/* {orderInfo.orderUserId === userId ? ( */}
-          {/* <> */}
-          {/* <form> */}
-          <p>Количество товара:</p>
+          <span className="basket-header">ЗАходим в </span>
 
-          {/* <p>К оплате: <span className="order-price">{orderInfo.Item.itemPrice * orderInfo.orderItemQuantity}</span> у.е.</p>
-        <div className="card-button-wrapper">
-          <button
-            className="card-button order-remove-button"
-            data-id={orderInfo.id}
-            type="button"
-          >
-            Отменить заказ
-          </button>
-        </div>
-      </>
-      ) : null} */}
-          <div className="card-info">
-            <p>
-              Цена: <span className="card-price" /> у.е.
-            </p>
-            <p>В наличии у продавца: X шт.</p>
-            <p>
-              Продавец: <a href="/user/" />
-            </p>
-            <p>Заказано: X </p>
+          {/* <img src={orderInfo.Item.itemPhotoLink} alt="itemphoto" /> */}
+          <div className="cardContainer">
+            {baskets?.map((basket) => (
+              <CardPage key={basket.id} basket={basket} login={login} />
+            ))}
           </div>
+
           <button type="submit" id="del-card" className="button btncard-del">
             Удалить карточку
           </button>
         </div>
       </div>
+      <script defer src="/js/basket.js" />
     </Layout>
   );
 };
