@@ -6,7 +6,7 @@ const Main = require('../views/Main');
 const Page404 = require('../views/Page404');
 
 const Cards = require('../views/components/Card');
-const Order = require('../views/Order');
+const Basket = require('../views/Basket');
 const { Card } = require('../../db/models');
 
 
@@ -38,7 +38,7 @@ router.get('/logout', (req, res) => {
 router.get('/basket', async (req, res) => {
   const { login } = req.session;
   try {
-    renderTemplate(Order, {}, res);
+    renderTemplate(Basket, {login}, res);
   } catch (error) {
     console.log('Ошибка на сервере', error);
   }
