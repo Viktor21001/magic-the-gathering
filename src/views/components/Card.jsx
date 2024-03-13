@@ -23,7 +23,7 @@ function Card({ card, login }) {
         <p>Цена: {card?.cardPrice}</p>
         <p>Состояние: {card?.wear}</p>
         {login && (
-          <button className="buyBtn" type="button">
+          <button data-card={card.id} className="buyBtn" type="button">
             Купить
           </button>
         )}

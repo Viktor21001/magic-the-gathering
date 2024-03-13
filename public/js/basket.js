@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // console.log('====>>>>>', event.target);
       console.log('====>>>>>', id);
 
-      // console.log('====>>>>>', id);
+      console.log('====>>>>>', id);
       // const idNum = parseInt(id.match(/\d+/)[0], 10);
 
       try {
