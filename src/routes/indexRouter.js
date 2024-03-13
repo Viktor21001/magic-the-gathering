@@ -44,20 +44,24 @@ router.get('/logout', (req, res) => {
 router.get('/basket', authMiddleware, async (req, res) => {
   const { login } = req.session;
   try {
-    const cardsRaw = await Card.findAll({
+    const basketRaw = await Basket.findAll({
+      where: { userId },
       include: [
         {
-          model: User,
-          attributes: ['city'],
+          model: Card,
+          attributes: ['cardName', 'cardPrice', 'wear', 'cardImg'],
+          include: {
+            model: User,
+            attributes: ['city'],
+          },
         },
       ],
     });
-    const cards = cardsRaw.map((card) => card.get({ plain: true }));
-    const basketRaw = await Basket.findAll();
-    const baskets = basketRaw.map((bask) => bask.get({ plain: true }));
-    // console.log('🚀 ~ router.get ~ baskets:', baskets);
 
-    renderTemplate(BasketPage, { login, baskets, cards }, res);
+    const baskets = basketRaw.map((bask) => bask.get({ plain: true }));
+    console.log('🚀 ~ router.get ~ baskets:', baskets);
+
+    renderTemplate(BasketPage, { login, baskets }, res);
   } catch (error) {
     console.log('Ошибка на сервере', error);
   }

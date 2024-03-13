@@ -3,7 +3,7 @@ const React = require('react');
 // const cardBackgroundImage = './media/infoCard.jpg';
 const testCard = './media/testCard.jpg';
 
-function CardBasket({ card, login }) {
+function Card({ card, login }) {
   return (
     <div className="cardsPage">
       {/* Левая часть: Изображение карточки */}
@@ -23,7 +23,7 @@ function CardBasket({ card, login }) {
         <p>Цена: {card?.cardPrice}</p>
         <p>Состояние: {card?.wear}</p>
         {login && (
-          <button className="buyBtn" type="button">
+          <button data-card={card.id} className="buyBtn" type="button">
             Купить
           </button>
         )}
@@ -32,4 +32,4 @@ function CardBasket({ card, login }) {
   );
 }
 
-module.exports = CardBasket;
+module.exports = Card;
