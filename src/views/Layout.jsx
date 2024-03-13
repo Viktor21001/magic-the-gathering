@@ -33,10 +33,10 @@ module.exports = function Layout({ children, login }) {
           integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
           crossOrigin="anonymous"
         />
-        <script
+        {/* <script
           src="https://api-maps.yandex.ru/2.1/?apikey=92bad04a-63e8-46e6-ac23-b89e6d4ae7d1&lang=ru_RU"
           type="text/javascript"
-        />
+        /> */}
       </head>
       <Navbar login={login} />
       {/* //! Запилил сюда задний фон боди. Если что, убрать!!! */}
