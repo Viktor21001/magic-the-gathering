@@ -5,7 +5,9 @@ const Card = require('./components/Card');
 module.exports = function Main({ login, cards }) {
   return (
     <Layout login={login}>
-      <h3 style={{ textAlign: 'center', marginTop: '20px' }}>Magic: The Gathering</h3>
+      <h3 style={{ textAlign: 'center', marginTop: '20px' }}>
+        Magic: The Gathering
+      </h3>
       {/* <script defer src="/js/addFetch.js" /> */}
       {login ? (
         <>
@@ -43,6 +45,7 @@ module.exports = function Main({ login, cards }) {
           ))}
         </div>
       )}
+      <script defer src="/js/addCardBasket.js" />
     </Layout>
   );
 };

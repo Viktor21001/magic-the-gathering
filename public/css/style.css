@@ -124,7 +124,7 @@
   border-color: #006089 !important;
 }
 
-.cardContainer {
+.cardContainer, .basketContainer {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
