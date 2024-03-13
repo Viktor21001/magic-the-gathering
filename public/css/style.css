@@ -50,255 +50,27 @@
   justify-content: center;
 }
 
-/* body {
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s ease;
-}
-
-body.light-theme {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-body.dark-theme {
-  background-color: #2e2c2c;
-  color: #ffffff;
-}
-
-
-
-
-
-.boxed-text {
-  border: 2px solid currentColor;
-  padding: 15px;
-  margin-top: 20px;
-}
-
-#themeToggle,
-#bonus {
-  border-radius: 10px;
-  background-color: #2e2c2c;
-  color: #ffffff;
-}
-
-.postCard {
-  display: flex;
-  border: black solid 2px;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
-}
-
-.postTitle,
-.postBody,
-.postImg {
-  border: black solid 1px;
-  border-radius: 10px;
+.addCard {
+  text-align: center;
   margin: 10px;
 }
 
-.describeCard {
+.cardCreate {
   display: flex;
-}
-
-.cardText {
-  margin: 0 20px;
-}
-
-.publish {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  margin: 5px 20px;
-}
-
-.addBtn,
-.cardEditBtn,
-.cardDelBtn {
-  border-radius: 10px;
-  background-color: #484848;
-  color: #ffffff;
-  padding: 2px; 
-  margin: 10px;
-  margin-right: 10px;
-}
-
-.aboutContainer {
-  margin: 10px;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  body {
-    background: black;
-    color: white;
-  }
-}
-
- .decksContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-}
-
-.deck {
-  min-width: 150px;
-  min-height: 300px;
-  margin: 15px;
-  background-image: url(/assets/1709013403135moopsldc.png);
-  background-size: cover;
-  background-position: center;
+  justify-content: center;
+  width: 400px;
+  height: 500px;
   padding: 10px;
-   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-   font-display: hidden;
-   color: #36d792 !important;
- }
- 
- .deck:hover {
-   scale: 1.1;
-   transition: 0.5s;
-   color: #ffffff !important;
-   cursor: pointer;
-   font-size: 150%;
- }
- 
- .bodyMainContent {
-   padding: 20px;
-   min-height: 66vh;
- }
- 
- .all-cards {
-   display: grid;
-   grid-template-columns: repeat(5, 1fr);
-   grid-gap: 20px;
-   border-radius: 10px;
-   justify-items: stretch;
- }
- 
- .card-question,
- .goodAns,
- .badAns {
-   min-width: 200px;
-   min-height: 300px;
-   background-image: url(/assets/17090133397241fixh552.png);
-   background-size: cover;
-   background-position: center;
-   padding: 10px;
-   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-   border-radius: 10px;
-   font-size: large;
- }
- 
- .goodAns {
-   border: 5px solid greenyellow;
- }
- 
- .badAns {
-   border: 5px solid red;
- }
- 
- .answer {
-   margin-top: 20px;
-   text-align: center;
-   font-size: x-large;
- }
- 
- .answer-stats {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-around;
-   margin-top: 20px;
- }
- 
- .answer input {
-   border-radius: 10px;
- }
- 
- .answer button {
-   font-size: larger;
- }
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: aliceblue;
+}
 
- .form-label {
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
- 
- .form-label input {
-   width: 25%;
-   margin: 10px;
- }
- 
- .form-label button {
-   margin: 20px auto 0;
-   background-color: #898681;
-   border-color: black;
-   color: white;
-   min-width: 200px;
- }
- .team-container {
-   display: flex;
-   justify-content: space-around;
-   text-align: center;
- }
- 
- .team-member img {
-   width: 200px;
-   height: auto;
-   border-radius: 50%;
-   object-fit: cover;
- }
-
-.round {
-   border-radius: 10px;
- }
- 
- .statsBtn {
-   border-radius: 10px;
-   margin: 5px;
- }
- 
- .container-fluid {
-   background-color: #a59e9eac;
-   font-size: larger;
- }
- 
- .navbar-brand {
-   font-size: 40px !important;
- }
- 
- @media (max-width: 1900px) {
-   .all-cards {
-     grid-template-columns: repeat(4, 1fr);
-   }
- }
- 
- @media (max-width: 1600px) {
-   .decksContainer {
-     grid-template-columns: repeat(3, 1fr);
-   }
-   .all-cards {
-     grid-template-columns: repeat(3, 1fr);
-   }
- }
- 
- @media (max-width: 1200px) {
-   .decksContainer {
-     grid-template-columns: repeat(2, 1fr);
-   }
-   .all-cards {
-     grid-template-columns: repeat(2, 1fr);
-   }
- }
- 
- @media (max-width: 768px) {
-   .decksContainer {
-     grid-template-columns: repeat(1, 1fr);
-   }
-   .all-cards {
-     grid-template-columns: repeat(1, 1fr);
-   }
- } */
+.cardCreate label {
+  margin: 10px;
+}
 
 .basket {
   margin: auto;

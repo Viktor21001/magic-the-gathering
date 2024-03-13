@@ -1,6 +1,6 @@
 const React = require('react');
 
-function Card({ card, login }) {
+function UserCard({ card, login }) {
   return (
     <div className="card">
       <img
@@ -13,10 +13,11 @@ function Card({ card, login }) {
         <p>City: {card?.User.city}</p>
         <p>Price: {card?.cardPrice}</p>
         <p>Wear: {card?.wear}</p>
-        {login && <button type="button">Добавить в корзину</button>}
+        <button type="button" className='editBtn'>Редактировать</button>
+        <button type="button" className='deleteBtn'>Удалить</button>
       </div>
     </div>
   );
 }
 
-module.exports = Card;
+module.exports = UserCard;

@@ -1,5 +1,6 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
+const Card = require('./components/Card');
 
 module.exports = function Basket({ login, cards }) {
   return (
@@ -9,7 +10,7 @@ module.exports = function Basket({ login, cards }) {
           <span className="basket-header">ЗАходим </span>
           <p>Артикул: </p>
           {/* <img src={orderInfo.Item.itemPhotoLink} alt="itemphoto" /> */}
-          <div className="card-content"></div>
+          <div className="card-content" />
           {/* {orderInfo.orderUserId === userId ? ( */}
           {/* <> */}
           {/* <form> */}
@@ -29,11 +30,11 @@ module.exports = function Basket({ login, cards }) {
       ) : null} */}
           <div className="card-info">
             <p>
-              Цена: <span className="card-price"></span> у.е.
+              Цена: <span className="card-price" /> у.е.
             </p>
             <p>В наличии у продавца: X шт.</p>
             <p>
-              Продавец: <a href={`/user/`}></a>
+              Продавец: <a href="/user/" />
             </p>
             <p>Заказано: X </p>
           </div>
