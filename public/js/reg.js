@@ -24,10 +24,26 @@ form.addEventListener('submit', async (e) => {
       }, 1000);
     }
     if (result.err) {
-      logMsg.innerText =
-        'Пользователь с таким логином или почтой уже существует';
+      logMsg.innerText = 'Пользователь с таким логином или почтой уже существует';
     }
   } catch (error) {
     console.log('Ошибка:', error);
+  }
+});
+
+const cityInput = document.querySelector('#cityInput');
+const cities = document.querySelector('#cities');
+
+cityInput.addEventListener('keyup', async (e) => {
+  try {
+    const response = await fetch(`/reg/${e.target.value}`);
+    const result = await response.json();
+    let options = '';
+    for (let i = 1; i < result.length; i++) {
+      options += `<option value="${result[i].name}" />`;
+    }
+    cities.innerHTML = options;
+  } catch (error) {
+    console.error('Error fetching data:', error);
   }
 });

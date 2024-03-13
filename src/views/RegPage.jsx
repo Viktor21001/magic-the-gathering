@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Register({ login }) {
+module.exports = function Register({}) {
   return (
-    <Layout login={login}>
+    <Layout>
       <script defer src="/js/reg.js" />
       <h3 style={{ textAlign: 'center' }} className="hTag">
         Введите данные для регистрации:
@@ -37,13 +37,19 @@ module.exports = function Register({ login }) {
         <label htmlFor="regInput" className="form-label">
           Город
           <input
-            name="city"
-            type="text"
-            className="form-control shadow rounded"
-            id="regInput"
-            placeholder="Введите ваш логин:"
             required
+            name="city"
+            className="form-control shadow rounded"
+            id="cityInput"
+            placeholder="Введите ваш город:"
+            list="cities"
           />
+          <datalist id="cities">
+            {/* {cities?.map((city) => (
+              <option value={city.name} />
+            ))} */}
+            <option value="" />
+          </datalist>
         </label>
 
         <label htmlFor="regPassInput" className="form-label">

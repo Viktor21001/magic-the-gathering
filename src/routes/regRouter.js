@@ -3,9 +3,19 @@ const bcrypt = require('bcrypt');
 const renderTemplate = require('../lib/renderTemplate');
 const RegPage = require('../views/RegPage');
 const { User } = require('../../db/models');
+const { log } = require('console');
 
-router.get('/', (req, res) => {
-  renderTemplate(RegPage, null, res);
+router.get('/', async (req, res) => {
+  try {
+    // const cities = [{ name: 'Москва' }, { name: 'Архангельск' }, { name: 'Питер' }, { name: 'Батуми' }, { name: 'Иваново' }];
+    // const response = await fetch('https://kladr-api.ru/api.php?query=А&contentType=city&withParent=1&limit=10');
+    // const cities = await response.json();
+    // console.log(cities.result);
+    // renderTemplate(RegPage, { cities: cities.result }, res);
+    renderTemplate(RegPage, {}, res);
+  } catch (error) {
+    res.status(500);
+  }
 });
 
 router.post('/', async (req, res) => {
@@ -29,6 +39,17 @@ router.post('/', async (req, res) => {
         res.json({ regDone: 'Регистрация прошла успешно', id: newUser.id });
       });
     }
+  } catch (error) {
+    res.json({ error: 'Ошибка сервера' });
+  }
+});
+
+router.get('/:str', async (req, res) => {
+  const { str } = req.params;
+  try {
+    const response = await fetch(`https://kladr-api.ru/api.php?query=${str}&contentType=city&withParent=1&limit=10`);
+    const result = await response.json();
+    res.json(result.result);
   } catch (error) {
     res.json({ error: 'Ошибка сервера' });
   }
