@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
         login, email, city, password: hash,
       });
       req.session.login = newUser.login;
-      // req.session.userId = newUser.id;
+      req.session.userId = newUser.id;
       req.session.save(() => {
         res.json({ regDone: 'Регистрация прошла успешно', id: newUser.id });
       });
