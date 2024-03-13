@@ -298,6 +298,34 @@ body.dark-theme {
    .all-cards {
      grid-template-columns: repeat(1, 1fr);
    }
- } /*
+ } */
 
- 
+.basket {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+  padding: 40px;
+}
+
+.basket-conteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 300px;
+  height: 380px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: aliceblue;
+  margin-bottom: 30px;
+}
+
+.btncard-del {
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+}
