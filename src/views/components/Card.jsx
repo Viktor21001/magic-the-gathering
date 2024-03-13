@@ -3,7 +3,7 @@ const React = require('react');
 // const cardBackgroundImage = './media/infoCard.jpg';
 const testCard = './media/testCard.jpg';
 
-function CardBasket({ card, login }) {
+function Card({ card, login }) {
   return (
     <div className="cardsPage">
       {/* Левая часть: Изображение карточки */}
@@ -32,4 +32,4 @@ function CardBasket({ card, login }) {
   );
 }
 
-module.exports = CardBasket;
+module.exports = Card;

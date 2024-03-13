@@ -11,7 +11,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const user = await User.findByPk(userId);
     const basket = await Basket.findByPk(id);
-    console.log('🚀 ~ router.delete :', basket);
+    // console.log('🚀 ~ router.delete :', basket);
     if (!user) {
       res.status(404).json({ err: 'Такого пользователя не существует!' });
     } else if (!basket) {
