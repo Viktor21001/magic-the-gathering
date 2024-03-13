@@ -5,12 +5,11 @@ const renderTemplate = require('../lib/renderTemplate');
 const Main = require('../views/Main');
 const Page404 = require('../views/Page404');
 
-const Basket = require('../views/Basket');
-
+const BasketPage = require('../views/Basket');
 
 const UserPage = require('../views/UserPage');
 
-const { Card, User } = require('../../db/models');
+const { Card, User, Basket } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   const { login } = req.session;
@@ -44,7 +43,20 @@ router.get('/logout', (req, res) => {
 router.get('/basket', async (req, res) => {
   const { login } = req.session;
   try {
-    renderTemplate(Basket, { login }, res);
+    const cardsRaw = await Card.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['city'],
+        },
+      ],
+    });
+    const cards = cardsRaw.map((card) => card.get({ plain: true }));
+    const basketRaw = await Basket.findAll();
+    const baskets = basketRaw.map((bask) => bask.get({ plain: true }));
+    // console.log('🚀 ~ router.get ~ baskets:', baskets);
+
+    renderTemplate(BasketPage, { login, baskets, cards }, res);
   } catch (error) {
     console.log('Ошибка на сервере', error);
   }
