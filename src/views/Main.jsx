@@ -1,5 +1,6 @@
 const React = require('react');
 const Layout = require('./Layout');
+const Card = require('./components/Card');
 
 module.exports = function Main({ login, cards }) {
   return (
@@ -12,10 +13,18 @@ module.exports = function Main({ login, cards }) {
             <input />
             <input type="search" />
           </div>
-          <div className="cardContainer" />
+          <div className="cardContainer">
+            {cards?.map((card) => (
+              <Card key={card.id} card={card} login={login} />
+            ))}
+          </div>
         </>
       ) : (
-        <div className="cardContainer" />
+        <div className="cardContainer">
+          {cards?.map((card) => (
+            <Card key={card.id} card={card} />
+          ))}
+        </div>
       )}
     </Layout>
   );
