@@ -11,11 +11,21 @@ module.exports = function Main({ login, cards }) {
         <>
           <div className="filter">
             <form name="filter">
-              <input />
+              <select className="filter">
+                <option disabled selected>Выбрать город:</option>
+                {Array.from(new Set(cards.map((card) => card.User.city))).map((city) => (
+                  <option key={city}>{city}</option>
+                ))}
+              </select>
               <button className="btnFilter" type="submit">Filter</button>
             </form>
             <form name="search">
-              <input type="search" placeholder="Search" aria-label="Search" />
+              <input type="search" className="search" placeholder="Search" aria-label="Search" list="search" />
+              <datalist id="search">
+                {Array.from(new Set(cards.map((card) => card.cardName))).map((cardName, index) => (
+                  <option key={index} value={cardName}>{cardName}</option>
+                ))}
+              </datalist>
               <button className="btnSearch" type="submit">Search</button>
             </form>
           </div>

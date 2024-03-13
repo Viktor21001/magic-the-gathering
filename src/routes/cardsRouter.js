@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
+const { Op } = require('sequelize');
+const Main = require('../views/Main');
 const renderTemplate = require('../lib/renderTemplate');
 
 const { User, Card } = require('../../db/models');
@@ -75,6 +77,52 @@ router.delete('/:id', async (req, res) => {
     }
   } catch (error) {
     console.log('Ошибка удаления карточки', error);
+    res.sendStatus(500);
+  }
+});
+
+router.get('/city/:city', async (req, res) => {
+  const { city } = req.params;
+  const { login } = req.session;
+  try {
+    const cardInCity = await Card.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['city'],
+          where: { city },
+        },
+      ],
+    });
+    renderTemplate(Main, { login, cards: cardInCity }, res);
+    // res.json(cardInCity);
+  } catch (error) {
+    console.log('Ошибка поиска карточек по городу карточки', error);
+    res.sendStatus(500);
+  }
+});
+
+router.get('/title/:string', async (req, res) => {
+  const { string } = req.params;
+  const { login } = req.session;
+  try {
+    const cardWithName = await Card.findAll({
+      where: {
+        cardName: {
+          [Op.like]: `%${string}%`,
+        },
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['city'],
+        },
+      ],
+    });
+    renderTemplate(Main, { login, cards: cardWithName }, res);
+    // res.json(cardWithName);
+  } catch (error) {
+    console.log('Ошибка поиска карточек по городу карточки', error);
     res.sendStatus(500);
   }
 });
