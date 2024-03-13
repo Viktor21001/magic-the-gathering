@@ -1,11 +1,8 @@
 const React = require('react');
 const Layout = require('./Layout');
-const CardPage = require('./components/CardBasket');
+const CardBasket = require('./components/CardBasket');
 
-module.exports = function BasketPage({ login, baskets, cards }) {
-  // console.log("🚀 ~ BasketPage ~ :", cards)
-  console.log('🚀 ~ BasketPage ~ baskets:', baskets);
-
+module.exports = function BasketPage({ login, baskets }) {
   return (
     <Layout login={login}>
       <div className="basket">
@@ -13,14 +10,14 @@ module.exports = function BasketPage({ login, baskets, cards }) {
           <span className="basket-header">Зaходим в </span>
 
           {/* <img src={orderInfo.Item.itemPhotoLink} alt="itemphoto" /> */}
-          <div className="cardContainer">
+          <div className="basketContainer">
             {baskets?.map((basket) => (
-              <CardPage key={cards.id} basket={basket} login={login} card={cards} />
+              <CardBasket key={basket.id} basket={basket} />
             ))}
           </div>
 
-          <button type="submit" id="del-card" className="button btncard-del">
-            Удалить карточку
+          <button type="submit" id="del-card" className="btn-card-del">
+            купить карточки из корзины
           </button>
         </div>
       </div>

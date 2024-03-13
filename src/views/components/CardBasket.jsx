@@ -3,7 +3,8 @@ const React = require('react');
 // const cardBackgroundImage = './media/infoCard.jpg';
 const testCard = './media/testCard.jpg';
 
-function Card({ card, login }) {
+function Card({ basket }) {
+  // console.log('..', card.id);
   return (
     <div
       style={{
@@ -19,7 +20,7 @@ function Card({ card, login }) {
       {/* Левая часть: Изображение карточки */}
       <img
         src={testCard}
-        alt={card.name}
+        alt={basket.Card.cardName}
         style={{
           width: '300px',
           height: '420px',
@@ -28,6 +29,7 @@ function Card({ card, login }) {
       />
       {/* Правая часть: Детали карточки */}
       <div
+        // id={`card-${card.id}`}
         className="card-details"
         style={{
           borderRadius: '13px',
@@ -37,26 +39,26 @@ function Card({ card, login }) {
           marginLeft: '-10px',
         }}
       >
-        <h3 style={{ margin: '0.5em 0' }}>Название: {card?.cardName}</h3>
-        <p style={{ margin: '0.5em 0' }}>Город: {card?.User?.city}</p>
-        <p style={{ margin: '0.5em 0' }}>Цена: {card?.cardPrice}</p>
-        <p style={{ margin: '0.5em 0' }}>Состояние: {card?.wear}</p>
-        {login && (
-          <button
-            type="button"
-            style={{
-              background: '#8c7a5b',
-              color: 'white',
-              padding: '10px 20px',
-              border: 'none',
-              borderRadius: '10px',
-              margin: '10px 0',
-              boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2)',
-            }}
-          >
-            Удалить корзину
-          </button>
-        )}
+        <h3 style={{ margin: '0.5em 0' }}>Название: {basket.Card.cardName}</h3>
+        <p style={{ margin: '0.5em 0' }}>Город: {basket.Card.User.city}</p>
+        <p style={{ margin: '0.5em 0' }}>Цена: {basket.Card.cardPrice}</p>
+        <p style={{ margin: '0.5em 0' }}>Состояние: {basket.Card.wear}</p>
+        <button
+          type="button"
+          data-cardid={basket.cardId}
+          className="card-delete"
+          style={{
+            background: '#8c7a5b',
+            color: 'white',
+            padding: '10px 20px',
+            border: 'none',
+            borderRadius: '10px',
+            margin: '10px 0',
+            boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2)',
+          }}
+        >
+          Удалить из корзины
+        </button>
       </div>
     </div>
   );

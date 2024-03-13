@@ -4,7 +4,6 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const cors = require('cors');
 
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
@@ -27,13 +26,6 @@ const sessionConfig = {
     httpOnly: true,
   },
 };
-
-const corsOptions = {
-  origin: ['https://kladr-api.ru/'],
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
