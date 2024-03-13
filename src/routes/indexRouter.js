@@ -33,7 +33,6 @@ router.get('/logout', (req, res) => {
   });
 });
 
-
 router.get('/basket', async (req, res) => {
   const { login } = req.session;
   try {
@@ -42,6 +41,5 @@ router.get('/basket', async (req, res) => {
     console.log('Ошибка на сервере', error);
   }
 });
-
 
 module.exports = router;
