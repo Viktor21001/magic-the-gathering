@@ -11,7 +11,7 @@ module.exports = function Main({ login, cards }) {
       {/* <script defer src="/js/addFetch.js" /> */}
       {login ? (
         <>
-          <div className="filter">
+          <div className="filters">
             <form name="filter">
               <select className="filter">
                 <option disabled selected>Выбрать город:</option>

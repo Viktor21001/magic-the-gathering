@@ -10,6 +10,7 @@ const BasketPage = require('../views/Basket');
 const UserPage = require('../views/UserPage');
 
 const { Card, User, Basket } = require('../../db/models');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 router.get('/', async (req, res) => {
   const { login } = req.session;
@@ -40,8 +41,8 @@ router.get('/logout', (req, res) => {
   });
 });
 
-router.get('/basket', async (req, res) => {
-  const { login, userId } = req.session;
+router.get('/basket', authMiddleware, async (req, res) => {
+  const { login } = req.session;
   try {
     const basketRaw = await Basket.findAll({
       where: { userId },
@@ -66,7 +67,7 @@ router.get('/basket', async (req, res) => {
   }
 });
 
-router.get('/user/:login', async (req, res) => {
+router.get('/user/:login', authMiddleware, async (req, res) => {
   const { login, userId } = req.session;
   try {
     const userCards = await Card.findAll({

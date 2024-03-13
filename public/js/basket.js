@@ -17,13 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
       // const idNum = parseInt(id.match(/\d+/)[0], 10);
 
       try {
-        let response = await fetch(`/basket/${basketid}`, {
+        const response = await fetch(`/basket/${basketid}`, {
           method: 'DELETE',
         });
+        if (response.status === 401) {
+          window.location.href = '/'; // Перенаправление на главную страницу
+        }
         if (response.status === 200) {
-          const result = await response.json();
-          if (result.msg) {
-            event.target.closest('.oneCard').remove();
+          const { err, msg } = await response.json();
+          if (msg) {
+            console.log(msg);
+            event.target.innerText = msg;
+            // event.target.closest('.card').remove();
           }
           if (result.err) {
             console.log(result.err);
@@ -32,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log('что-то не так....!.');
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 

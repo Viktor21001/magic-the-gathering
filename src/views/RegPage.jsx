@@ -4,6 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Register({}) {
   return (
     <Layout>
+      <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js" />
       <script defer src="/js/reg.js" />
       <h3 style={{ textAlign: 'center' }} className="hTag">
         Введите данные для регистрации:
