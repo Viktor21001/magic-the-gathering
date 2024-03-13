@@ -10,7 +10,7 @@ const generateJwt = (id, login, email, city) =>
       city,
     },
     process.env.JWT_SECRET_KEY, // Секретный ключ из .env файла
-    { expiresIn: '20s' }, // Время жизни токена - 24 часа
+    { expiresIn: '24h' }, // Время жизни токена - 24 часа
   );
 
 module.exports = generateJwt;

@@ -42,7 +42,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/basket', authMiddleware, async (req, res) => {
-  const { login } = req.session;
+  const { login, userId } = req.session;
   try {
     const basketRaw = await Basket.findAll({
       where: { userId },
