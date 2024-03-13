@@ -27,6 +27,7 @@ function Card({ basket }) {
         <p>Состояние: {basket.Card.wear}</p>
         <button
           data-cardid={basket.cardId}
+          data-basketid={basket.id}
           type="button"
           className="card-basket-delete"
         >
