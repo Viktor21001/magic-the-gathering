@@ -19,7 +19,7 @@ function Card({ card, login }) {
       {/* Левая часть: Изображение карточки */}
       <img
         src={testCard}
-        alt={card.name}
+        alt={card.cardName}
         style={{
           width: '300px',
           height: '420px',
