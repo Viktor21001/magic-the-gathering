@@ -34,21 +34,20 @@ module.exports = function UserPage({ login, userCards }) {
           <label htmlFor="cardImg">
             Прикрепить изображение карты
             <br />
-            <input type="file" name="cardImg" />
+            <input type="text" name="cardImg" />
           </label>
 
-          <button className="cardAddBtn" type="button">
+          <button className="cardAddBtn" type="submit">
             Создать
           </button>
         </form>
       </div>
       <div className="cardContainer">
-        <div className="cardContainer">
-          {userCards?.map((card) => (
-            <UserCard key={card.id} card={card} />
-          ))}
-        </div>
+        {userCards?.map((card) => (
+          <UserCard key={card.id} card={card} />
+        ))}
       </div>
+      <script defer src="/js/cardAddFetch.js" />
     </Layout>
   );
 };

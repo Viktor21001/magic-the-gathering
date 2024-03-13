@@ -13,8 +13,8 @@ function UserCard({ card, login }) {
         <p>City: {card?.User.city}</p>
         <p>Price: {card?.cardPrice}</p>
         <p>Wear: {card?.wear}</p>
-        <button type="button" className='editBtn'>Редактировать</button>
-        <button type="button" className='deleteBtn'>Удалить</button>
+        <button type="button" className="editBtn">Редактировать</button>
+        <button type="button" className="deleteBtn">Удалить</button>
       </div>
     </div>
   );
