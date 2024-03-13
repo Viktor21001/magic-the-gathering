@@ -8,15 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // console.log('Ghbdtnd!!!>>>>>!!!!',  event.target);
 
     if (event.target.classList.contains('card-basket-delete')) {
-      const id = event.target.getAttribute('data-cardid');
+      const cardid = event.target.getAttribute('data-cardid');
+      const basketid = event.target.getAttribute('data-basketid');
       // console.log('====>>>>>', event.target);
-      console.log('====>>>>>', id);
+      // console.log('====>>>>>', id);
 
-      console.log('====>>>>>', id);
+      // console.log('====>>>>>', id);
       // const idNum = parseInt(id.match(/\d+/)[0], 10);
 
       try {
-        const response = await fetch(`/basket/${id}`, {
+        let response = await fetch(`/basket/${basketid}`, {
           method: 'DELETE',
         });
         if (response.status === 200) {
