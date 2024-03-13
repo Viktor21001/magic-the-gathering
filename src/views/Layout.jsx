@@ -1,6 +1,7 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
+const background = '/media/background.jpg';
 module.exports = function Layout({ children, login }) {
   return (
     <html lang="ru">
@@ -38,10 +39,11 @@ module.exports = function Layout({ children, login }) {
         />
       </head>
       <Navbar login={login} />
-      <body>
+      {/* //! Запилил сюда задний фон боди. Если что, убрать!!! */}
+      <body style={{ backgroundImage: `url(${background})` }}>
         <div className="bodyMainContent">{children}</div>
       </body>
-      <footer className="footer">
+      <footer className="footer" style={{ position: 'relative' }}>
         <div>Copyright © 2024</div>
       </footer>
     </html>
