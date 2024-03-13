@@ -5,9 +5,10 @@ const renderTemplate = require('../lib/renderTemplate');
 const Main = require('../views/Main');
 const Page404 = require('../views/Page404');
 
-const Cards = require('../views/components/Card');
-
 const Basket = require('../views/Basket');
+
+
+const UserPage = require('../views/UserPage');
 
 const { Card, User } = require('../../db/models');
 
@@ -44,6 +45,24 @@ router.get('/basket', async (req, res) => {
   const { login } = req.session;
   try {
     renderTemplate(Basket, { login }, res);
+  } catch (error) {
+    console.log('Ошибка на сервере', error);
+  }
+});
+
+router.get('/user/:login', async (req, res) => {
+  const { login, userId } = req.session;
+  try {
+    const userCards = await Card.findAll({
+      where: { seller: userId },
+      include: [
+        {
+          model: User,
+          attributes: ['city'],
+        },
+      ],
+    });
+    renderTemplate(UserPage, { login, userCards }, res);
   } catch (error) {
     console.log('Ошибка на сервере', error);
   }

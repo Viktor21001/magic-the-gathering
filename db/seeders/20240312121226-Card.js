@@ -6,8 +6,7 @@ module.exports = {
     await queryInterface.bulkInsert('Cards', [
       {
         cardName: 'VEIN RIPPER',
-        cardImg:
-          'https://spellmarket.ru/image/cache/image/images/mkm/vein-ripper-433-245x341.jpg',
+        cardImg: 'https://www.goha.ru/s/A:D5/om/j5VSQPaevv.png',
         cardPrice: 200,
         wear: 'Новая',
         seller: 1,
