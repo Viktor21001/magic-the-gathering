@@ -1,37 +1,37 @@
 /* eslint-disable no-param-reassign */
-const orderCardWrapper = document.querySelector('.card-wrapper');
+document.addEventListener('DOMContentLoaded', () => {
+  const basketContainerDel = document.querySelector('.basketContainer');
+  // console.log(basketContainerDel);
 
-if (orderCardWrapper) {
-  orderCardWrapper.addEventListener('click', async (event) => {
-    if (event.target.classList.contains('order-button')) {
-      const itemQuantitySpan = event.target.closest('.card').querySelector('.item-quantity');
-      const { id } = event.target.dataset;
-      try {
-        const response = await fetch(`/order/${id}`, {
-          method: 'POST',
-        });
-        if (response.status === 200) {
-          const { err, msg } = await response.json();
-          if (msg) {
-            console.log(msg);
-            event.target.innerText = msg;
-            // event.target.closest('.card').remove();
-          }
-          if (err) {
-            event.target.innerText = err;
-            event.target.disabled = true;
-            if (err === 'Товар закончился!') {
-              setTimeout(() => {
-                event.target.closest('.card').remove();
-              }, 1000);
-            }
-          }
-        } else {
-          console.log('Все упало...');
-        }
-      } catch (error) {
-        console.log(error);
-      }
+  basketContainerDel.addEventListener('click', async (event) => {
+    // console.log('Ghbdtnd!!!>>>>>!!!!');
+    // console.log(event.target);
+    if (event.target.classList.contains('card-delete')) {
+      const { id } = event.target.closest('.card-details');
+      console.log('====>>>>>',id);
+      const idNum = parseInt(id.match(/\d+/)[0], 10);
+      // try {
+      //   const response = await fetch(`/basket/${idNum}`, {
+      //     method: 'DELETE',
+      //   });
+      //   if (response.status === 200) {
+      //     const result = await response.json();
+      //     if (result.msg) {
+      //       event.target.closest('.card-details').remove();
+      //     }
+      //     if (result.err) {
+      //       console.log(result.err);
+      //     }
+      //   } else {
+      //     console.log('что-то не так....!.');
+      //   }
+      // } catch (error) {
+      //   console.log(error);
+      // }
     }
+
+    // if (event.target.classList.contains('company-favorite')) {
+    //   // console.log('уууу')
+    // }
   });
-}
+});
