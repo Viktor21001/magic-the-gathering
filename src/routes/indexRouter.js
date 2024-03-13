@@ -5,25 +5,27 @@ const renderTemplate = require('../lib/renderTemplate');
 const Main = require('../views/Main');
 const Page404 = require('../views/Page404');
 
-const CardPage = require('../views/components/Card');
+// const CardPage = require('../views/components/Card');
 
-const BasketPage = require('../views/BasketPage');
+const BasketPage = require('../views/Basket');
 
-const { Card, Basket } = require('../../db/models');
+const { User, Card, Basket } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   const { login } = req.session;
   try {
-    const cardsRaw = await Card.findAll(); //! Карточки из БД
-    const cards = cardsRaw.map((card) => card.get({ plain: true }));
-
-    // const cardRaw = await Card.findOne(); //! Карточки из БД
-    // const card = cardRaw.get({ plain: true });
-
+    const cards = await Card.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['city'],
+        },
+      ],
+    });
     renderTemplate(Main, { login, cards }, res);
   } catch (error) {
     console.log('Ошибка на сервере', error);
-    renderTemplate(Page404, {}, res); //! так как тута есть страничка 404, будем ее рендерить при ошибке
+    renderTemplate(Page404, {}, res);
   }
 });
 
