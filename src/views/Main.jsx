@@ -10,14 +10,21 @@ module.exports = function Main({ login, cards }) {
       {login ? (
         <>
           <div className="filter">
-            <input />
-            <input type="search" />
+            <form name="filter">
+              <input />
+              <button className="btnFilter" type="submit">Filter</button>
+            </form>
+            <form name="search">
+              <input type="search" placeholder="Search" aria-label="Search" />
+              <button className="btnSearch" type="submit">Search</button>
+            </form>
           </div>
           <div className="cardContainer">
             {cards?.map((card) => (
               <Card key={card.id} card={card} login={login} />
             ))}
           </div>
+          <script defer src="/js/home.js" />
         </>
       ) : (
         <div className="cardContainer">
