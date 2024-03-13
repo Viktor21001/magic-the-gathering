@@ -1,18 +1,21 @@
-const React = require("react");
-const Layout = require("./Layout");
-const CardPage = require("./components/Card");
+const React = require('react');
+const Layout = require('./Layout');
+const CardPage = require('./components/CardBasket');
 
-module.exports = function Basket({ login, baskets }) {
+module.exports = function BasketPage({ login, baskets, cards }) {
+  // console.log("🚀 ~ BasketPage ~ :", cards)
+  console.log('🚀 ~ BasketPage ~ baskets:', baskets);
+
   return (
     <Layout login={login}>
       <div className="basket">
         <div className="basket-conteiner">
-          <span className="basket-header">ЗАходим в </span>
+          <span className="basket-header">Зaходим в </span>
 
           {/* <img src={orderInfo.Item.itemPhotoLink} alt="itemphoto" /> */}
           <div className="cardContainer">
             {baskets?.map((basket) => (
-              <CardPage key={basket.id} basket={basket} login={login} />
+              <CardPage key={cards.id} basket={basket} login={login} card={cards} />
             ))}
           </div>
 

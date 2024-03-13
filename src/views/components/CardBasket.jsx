@@ -3,7 +3,7 @@ const React = require('react');
 // const cardBackgroundImage = './media/infoCard.jpg';
 const testCard = './media/testCard.jpg';
 
-function CardBasket({ card, login }) {
+function Card({ card, login }) {
   return (
     <div
       style={{
@@ -54,7 +54,7 @@ function CardBasket({ card, login }) {
               boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2)',
             }}
           >
-            Купить
+            Удалить корзину
           </button>
         )}
       </div>
@@ -62,4 +62,4 @@ function CardBasket({ card, login }) {
   );
 }
 
-module.exports = CardBasket;
+module.exports = Card;
