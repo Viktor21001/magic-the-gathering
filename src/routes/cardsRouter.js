@@ -6,7 +6,6 @@ const { User, Card } = require('../../db/models');
 
 router.post('/new', async (req, res) => {
   const { userId } = req.session;
-  console.log('🚀 ~ file: cardsRouter.js:9 ~ router.post ~ userId:', userId);
   const {
     cardName, cardPrice, wear, cardImg,
   } = req.body;

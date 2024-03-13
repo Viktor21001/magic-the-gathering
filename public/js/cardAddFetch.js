@@ -1,5 +1,7 @@
 console.log('Скрипт подключен');
 
+const testCard = './media/testCard.jpg';
+
 const cardContainer = document.querySelector('.cardContainer');
 const cardCreateForm = document.querySelector('.cardCreate');
 
@@ -19,15 +21,15 @@ cardCreateForm.addEventListener('submit', async (e) => {
     const {newCard, user} = await response.json();
     if (newCard) {
       const cardElement = document.createElement('div');
-      cardElement.className = 'card';
+      cardElement.className = 'userCard';
       cardElement.innerHTML = `
         <img
-          src="${newCard.cardImg}"
+          src="${testCard}"
           alt="${newCard.cardName}"
-          style="width: 100px; height: 140px"
+          style="width: 300px; height: 420px; border-radius: 13px;"
         />
         <div class="cardDetails">
-          <h3>${newCard.cardName}</h3>
+          <h4>${newCard.cardName}</h4>
           <p>City: ${user.city}</p>
           <p>Price: ${newCard.cardPrice}</p>
           <p>Wear: ${newCard.wear}</p>
