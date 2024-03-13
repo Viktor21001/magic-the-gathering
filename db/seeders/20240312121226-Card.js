@@ -2,24 +2,20 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('Cards', [
+      {
+        cardName: 'VEIN RIPPER',
+        cardImg:
+          'https://spellmarket.ru/image/cache/image/images/mkm/vein-ripper-433-245x341.jpg',
+        cardPrice: 200,
+        wear: 'Новая',
+        seller: 1,
+      },
+    ]);
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Cards', null, {});
+  },
 };
