@@ -25,4 +25,58 @@ router.post('/new', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const card = await Card.findByPk(id);
+    res.json(card);
+  } catch (error) {
+    console.log('Ошибка получения карточки', error);
+    res.sendStatus(500);
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  const { id } = req.params;
+  const {
+    cardName, cardPrice, wear, cardImg,
+  } = req.body;
+  try {
+    const cardUpdate = await Card.update({
+      cardName,
+      cardPrice,
+      wear,
+      cardImg,
+    }, {
+      where: {
+        id,
+      },
+    });
+    if (cardUpdate) {
+      const card = await Card.findByPk(id);
+      res.json(card);
+    }
+  } catch (error) {
+    console.log('Ошибка обновления карточки', error);
+    res.sendStatus(500);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const cardDelete = await Card.destroy({
+      where: {
+        id,
+      },
+    });
+    if (cardDelete) {
+      res.sendStatus(200);
+    }
+  } catch (error) {
+    console.log('Ошибка удаления карточки', error);
+    res.sendStatus(500);
+  }
+});
+
 module.exports = router;

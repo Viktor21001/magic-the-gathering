@@ -47,7 +47,7 @@ module.exports = function UserPage({ login, userCards }) {
           <UserCard key={card.id} card={card} />
         ))}
       </div>
-      <script defer src="/js/cardAddFetch.js" />
+      <script defer src="/js/cardFetch.js" />
     </Layout>
   );
 };
