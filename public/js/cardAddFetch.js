@@ -1,6 +1,6 @@
 console.log('Скрипт подключен');
 
-const testCard = './media/testCard.jpg';
+const testCard = '../media/testCard.jpg';
 
 const cardContainer = document.querySelector('.cardContainer');
 const cardCreateForm = document.querySelector('.cardCreate');
@@ -24,7 +24,7 @@ cardCreateForm.addEventListener('submit', async (e) => {
       cardElement.className = 'userCard';
       cardElement.innerHTML = `
         <img
-          src="${testCard}"
+          src="${newCard.cardImg.length > 10 ? newCard.cardImg : testCard}"
           alt="${newCard.cardName}"
           style="width: 300px; height: 420px; border-radius: 13px;"
         />

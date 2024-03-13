@@ -12,13 +12,13 @@ module.exports = function UserPage({ login, userCards }) {
           <label htmlFor="cardName">
             Название
             <br />
-            <input type="text" name="cardName" />
+            <input type="text" name="cardName" required />
           </label>
 
           <label htmlFor="cardPrice">
             Цена
             <br />
-            <input type="text" name="cardPrice" />
+            <input type="text" name="cardPrice" required />
           </label>
 
           <label htmlFor="wear">
@@ -34,7 +34,7 @@ module.exports = function UserPage({ login, userCards }) {
           <label htmlFor="cardImg">
             Прикрепить изображение карты
             <br />
-            <input type="text" name="cardImg" />
+            <input type="text" name="cardImg" required />
           </label>
 
           <button className="cardAddBtn" type="submit">
