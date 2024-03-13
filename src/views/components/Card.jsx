@@ -10,9 +10,9 @@ function Card({ card, login }) {
       />
       <div className="cardDetails">
         <h3>{card?.cardName}</h3>
+        <p>City: {card?.User.city}</p>
         <p>Price: {card?.cardPrice}</p>
         <p>Wear: {card?.wear}</p>
-        <p>Seller ID: {card?.seller}</p>
         {login && <button type="button">Добавить в корзину</button>}
       </div>
     </div>

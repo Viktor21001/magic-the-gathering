@@ -1,8 +1,8 @@
-const orderRouter = require("express").Router();
-const { User, Card, Basket } = require("../../db/models");
+const orderRouter = require('express').Router();
+const { User, Card, Basket } = require('../../db/models');
 
 // БОЕВОЙ
-orderRouter.post("/:id", async (req, res) => {
+orderRouter.post('/:id', async (req, res) => {
   const { userId } = req.session;
   const { id } = req.params;
   if (userId) {
@@ -19,24 +19,24 @@ orderRouter.post("/:id", async (req, res) => {
             userId: user.id,
             cardId: card.id,
           });
-          res.json({ msg: "Добавлено в корзину!" });
+          res.json({ msg: 'Добавлено в корзину!' });
         } else {
-          res.json({ err: "Товар закончился!" });
+          res.json({ err: 'Товар закончился!' });
         }
       } else {
-        res.json({ err: "Такого пользователя или товара не существует!" });
+        res.json({ err: 'Такого пользователя или товара не существует!' });
       }
     } catch (error) {
       console.log(error);
-      res.json({ err: "Внутренняя ошибка сервера!" });
+      res.json({ err: 'Внутренняя ошибка сервера!' });
     }
   } else {
-    res.json({ err: "У вас нет прав на заказ товара!" });
+    res.json({ err: 'У вас нет прав на заказ товара!' });
   }
 });
 
 // БОЕВОЙ
-orderRouter.delete("/:id", async (req, res) => {
+orderRouter.delete('/:id', async (req, res) => {
   const { userId } = req.session;
   const { id } = req.params;
   if (userId) {
@@ -47,20 +47,25 @@ orderRouter.delete("/:id", async (req, res) => {
       if (user && basket && card) {
         if (user.id === basket.userId) {
           await basket.destroy();
-          res.json({ msg: "Карточка удалена с корзины!" });
+          res.json({ msg: 'Карточка удалена с корзины!' });
         } else {
-          res.json({ err: "Вы не владелец!" });
+          res.json({ err: 'Вы не владелец!' });
         }
       } else {
-        res.json({ err: "Такого пользователя или карточки не существует!" });
+        res.json({ err: 'Такого пользователя или карточки не существует!' });
       }
     } catch (error) {
       console.log(error);
-      res.json({ err: "Внутренняя ошибка сервера!" });
+      res.json({ err: 'Внутренняя ошибка сервера!' });
     }
   } else {
-    res.json({ err: "У вас нет прав на удаление!" });
+    res.json({ err: 'У вас нет прав на удаление!' });
   }
 });
 
 module.exports = orderRouter;
+
+// const cardRaw = await Card.findOne(); //! Карточки из БД
+// const card = cardRaw.get({ plain: true });
+// const cardsRaw = await Card.findAll(); //! Карточки из БД
+// const cards = cardsRaw.map((card) => card.get({ plain: true }));

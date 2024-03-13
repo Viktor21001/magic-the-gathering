@@ -5,16 +5,21 @@ const renderTemplate = require('../lib/renderTemplate');
 const Main = require('../views/Main');
 const Page404 = require('../views/Page404');
 
-const Cards = require('../views/components/Card');
+const CardPage = require('../views/components/Card');
 
-const Basket = require('../views/Basket');
+const BasketPage = require('../views/BasketPage');
 
-const { Card } = require('../../db/models');
+const { Card, Basket } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   const { login } = req.session;
   try {
-    const cards = await Card.findAll(); //! Карточки из БД
+    const cardsRaw = await Card.findAll(); //! Карточки из БД
+    const cards = cardsRaw.map((card) => card.get({ plain: true }));
+
+    // const cardRaw = await Card.findOne(); //! Карточки из БД
+    // const card = cardRaw.get({ plain: true });
+
     renderTemplate(Main, { login, cards }, res);
   } catch (error) {
     console.log('Ошибка на сервере', error);
@@ -33,15 +38,15 @@ router.get('/logout', (req, res) => {
   });
 });
 
-
 router.get('/basket', async (req, res) => {
   const { login } = req.session;
   try {
-    renderTemplate(Basket, {login}, res);
+    const basketRaw = await Basket.findAll();
+    const baskets = basketRaw.map((bask) => bask.get({ plain: true }));
+    renderTemplate(BasketPage, { login, baskets }, res);
   } catch (error) {
     console.log('Ошибка на сервере', error);
   }
 });
-
 
 module.exports = router;
