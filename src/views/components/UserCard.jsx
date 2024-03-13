@@ -1,20 +1,26 @@
 const React = require('react');
 
+const testCard = '../../media/testCard.jpg';
+
 function UserCard({ card, login }) {
   return (
-    <div className="card">
+    <div className="userCard">
       <img
-        src={card?.cardImg}
-        alt={card?.cardName}
-        style={{ width: '100px', height: '140px' }}
+        src={card.cardImg.length > 10 ? card.cardImg : testCard}
+        alt={card.cardName}
+        style={{
+          width: '300px',
+          height: '420px',
+          borderRadius: '13px',
+        }}
       />
       <div className="cardDetails">
-        <h3>{card?.cardName}</h3>
+        <h4>{card?.cardName}</h4>
         <p>City: {card?.User.city}</p>
         <p>Price: {card?.cardPrice}</p>
         <p>Wear: {card?.wear}</p>
-        <button type="button" className='editBtn'>Редактировать</button>
-        <button type="button" className='deleteBtn'>Удалить</button>
+        <button type="button" className="editBtn">Редактировать</button>
+        <button type="button" className="deleteBtn">Удалить</button>
       </div>
     </div>
   );
