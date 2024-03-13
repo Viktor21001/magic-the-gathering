@@ -36,7 +36,7 @@
 }
 
 .footer {
-  position: relative;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -169,4 +169,39 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#loginForm, #regForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.filter, .search {
+  margin-bottom: 1rem;
+  padding: 0.375rem 0.75rem;
+  background: #ffffffa4;
+  border-radius: 10px 0px 0px 10px !important;
+  /* border: 1px solid #ffffffd5; */
+  border: none;
+  border-radius: 7px;
+}
+
+.btnSearch, .btnFilter {
+  border: none;
+  outline: none;
+  border-radius: 0px 10px 10px 0px !important;
+  min-width: 150px;
+  min-height: 35px;
+  /* color: var(--text-light); */
+  background: #ffffffa4;
+  cursor: pointer;
 }
