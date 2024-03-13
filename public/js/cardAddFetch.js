@@ -18,7 +18,7 @@ cardCreateForm.addEventListener('submit', async (e) => {
       body: JSON.stringify(inputs),
     });
 
-    const {newCard, user} = await response.json();
+    const { newCard, user } = await response.json();
     if (newCard) {
       const cardElement = document.createElement('div');
       cardElement.className = 'userCard';

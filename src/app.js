@@ -9,11 +9,12 @@ const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
+const cookieParser = require('cookie-parser');
 const dbConnectionCheck = require('../db/dbConnectCheck');
 const apiRouter = require('./routes/apiRouter');
 
 const app = express();
-
+app.use(cookieParser());
 const { PORT } = process.env;
 
 const sessionConfig = {

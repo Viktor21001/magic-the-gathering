@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const renderTemplate = require('../lib/renderTemplate');
 const LoginPage = require('../views/LoginPage');
 const { User } = require('../../db/models');
+const generateJwt = require('../lib/jwtUtils');
 
 router.get('/', (req, res) => {
   renderTemplate(LoginPage, null, res);
@@ -19,9 +20,16 @@ router.post('/', async (req, res) => {
       if (checkPass) {
         req.session.userId = user.id;
         req.session.login = user.login;
+
+        const token = generateJwt(user.id, user.login, user.email, user.city);
+        console.log('Это новый JWT токен ===>', token);
+        res.cookie('token', token, {
+          httpOnly: true, // Флаг httpOnly делает cookie недоступным для клиентских JavaScript скриптов (для безопасности)
+          maxAge: 24 * 60 * 60 * 1000, // Срок жизни cookie - 24 часа
+        });
         req.session.save(() => {
           console.log('Сессия сохранена');
-          res.json({ logDone: 'Пользователь вернулся' });
+          res.json({ logDone: 'Пользователь вернулся', token });
         });
       } else {
         res.json({ errPass: 'Неверный пароль' });
