@@ -1,44 +1,53 @@
 /* eslint-disable no-nested-ternary */
 const React = require('react');
 const Layout = require('./Layout');
+const UserCard = require('./components/UserCard');
 
-module.exports = function UserPage({ login }) {
+module.exports = function UserPage({ login, userCards }) {
   return (
     <Layout login={login}>
       <div className="addCard">
         <form className="cardCreate">
           <p className="msg"> </p>
-          <label key>
+          <label htmlFor="cardName">
             Название
-            <input type="text" />
+            <br />
+            <input type="text" name="cardName" required />
           </label>
 
-          <label>
+          <label htmlFor="cardPrice">
             Цена
-            <input type="text" />
+            <br />
+            <input type="text" name="cardPrice" required />
           </label>
 
-          <label>
+          <label htmlFor="wear">
             Степень изношенности
-            <input type="text" />
-          </label>
-
-          <label>
-            Степень изношенности
-            <select>
+            <br />
+            <select name="wear">
               <option>Идеальное</option>
               <option>Есть незначительные повреждения</option>
               <option>Есть повреждения</option>
             </select>
           </label>
 
-          <label>
+          <label htmlFor="cardImg">
             Прикрепить изображение карты
-            <input type="file" />
+            <br />
+            <input type="text" name="cardImg" required />
           </label>
+
+          <button className="cardAddBtn" type="submit">
+            Создать
+          </button>
         </form>
       </div>
-      <div className="cardContainer" />
+      <div className="cardContainer">
+        {userCards?.map((card) => (
+          <UserCard key={card.id} card={card} />
+        ))}
+      </div>
+      <script defer src="/js/cardAddFetch.js" />
     </Layout>
   );
 };

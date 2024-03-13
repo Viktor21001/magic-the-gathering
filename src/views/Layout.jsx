@@ -1,6 +1,7 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
+const background = '/media/background.jpg';
 module.exports = function Layout({ children, login }) {
   return (
     <html lang="ru">
@@ -32,16 +33,17 @@ module.exports = function Layout({ children, login }) {
           integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
           crossOrigin="anonymous"
         />
-        <script
+        {/* <script
           src="https://api-maps.yandex.ru/2.1/?apikey=92bad04a-63e8-46e6-ac23-b89e6d4ae7d1&lang=ru_RU"
           type="text/javascript"
-        />
+        /> */}
       </head>
       <Navbar login={login} />
+      {/* //! Запилил сюда задний фон боди. Если что, убрать!!! */}
       <body>
         <div className="bodyMainContent">{children}</div>
       </body>
-      <footer className="footer">
+      <footer className="footer" style={{ position: 'relative' }}>
         <div>Copyright © 2024</div>
       </footer>
     </html>
