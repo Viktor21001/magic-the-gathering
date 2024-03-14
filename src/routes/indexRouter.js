@@ -59,7 +59,7 @@ router.get('/basket', authMiddleware, async (req, res) => {
     });
 
     const baskets = basketRaw.map((bask) => bask.get({ plain: true }));
-    console.log('🚀 ~ router.get ~ baskets:', baskets);
+    // console.log('🚀 ~ router.get ~ baskets:', baskets);
 
     renderTemplate(BasketPage, { login, baskets }, res);
   } catch (error) {

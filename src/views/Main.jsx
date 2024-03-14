@@ -22,7 +22,7 @@ module.exports = function Main({ login, cards }) {
               <button className="btnFilter" type="submit">Filter</button>
             </form>
             <form name="search">
-              <input type="search" className="search" placeholder="Search" aria-label="Search" list="search" />
+              <input required type="search" className="search" placeholder="Search" aria-label="Search" list="search" />
               <datalist id="search">
                 {Array.from(new Set(cards.map((card) => card.cardName))).map((cardName, index) => (
                   <option key={index} value={cardName}>{cardName}</option>
