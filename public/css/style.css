@@ -321,3 +321,10 @@ body {
   height: 420px;
   border-radius: 13px;
 }
+
+.basketText {
+  background-color: #6860609d;
+  font-size: 50px;
+  color: #dae7ec;
+  font-family: Helvetica, Arial, sans-serif;
+}
