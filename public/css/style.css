@@ -55,7 +55,7 @@
   margin: 10px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .cardCreate {
@@ -124,17 +124,20 @@
   border-color: #006089 !important;
 }
 
-.cardContainer, .basketContainer {
+.cardContainer,
+.basketContainer {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
   gap: 40px;
   padding: 40px;
 }
 
-.cardsPage, .userCard {
+.cardsPage,
+.userCard {
   display: flex;
- flex-direction: column;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   /* gap: 30px; */
@@ -143,7 +146,8 @@
   /* width: 900px; */
 }
 
-.card-details, .cardDetails {
+.card-details,
+.cardDetails {
   border-radius: 13px;
   /* padding: 20px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -177,7 +181,8 @@ body {
   justify-content: space-around;
 }
 
-#loginForm, #regForm {
+#loginForm,
+#regForm {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -185,7 +190,8 @@ body {
   margin-right: 30%;
 }
 
-.filter, .search {
+.filter,
+.search {
   margin-bottom: 1rem;
   padding: 0.375rem 0.75rem;
   background: #ffffffa4;
@@ -195,7 +201,8 @@ body {
   border-radius: 7px;
 }
 
-.btnSearch, .btnFilter {
+.btnSearch,
+.btnFilter {
   border: none;
   outline: none;
   border-radius: 0px 10px 10px 0px !important;
