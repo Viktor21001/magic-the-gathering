@@ -17,13 +17,17 @@ function Card({ card, login }) {
         }}
       />
       {/* Правая часть: Детали карточки */}
-      <div className="card-details">
+      <div className="card-details formStyle">
         <h4>{card?.cardName}</h4>
         <p>Город: {card?.User?.city}</p>
         <p>Цена: {card?.cardPrice}</p>
         <p>Состояние: {card?.wear}</p>
         {login && (
-          <button data-card={card.id} className="buyBtn" type="button">
+          <button
+            data-card={card.id}
+            className="buyBtn buttonStyle"
+            type="button"
+          >
             Купить
           </button>
         )}

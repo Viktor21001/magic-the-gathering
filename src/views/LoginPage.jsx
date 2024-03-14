@@ -9,13 +9,13 @@ module.exports = function Login() {
         Введите данные для авторизации:
       </h3>
       <hr />
-      <form action="/login" method="POST" id="loginForm">
+      <form action="/login" method="POST" id="loginForm" className="formStyle">
         <label htmlFor="loginInput" className="form-label">
           Логин
           <input
             name="login"
             type="text"
-            className="form-control shadow rounded"
+            className="form-control shadow rounded inputStyle"
             id="loginInput"
             placeholder="Введите ваш логин:"
             required
@@ -27,19 +27,21 @@ module.exports = function Login() {
           <input
             name="password"
             type="password"
-            className="form-control shadow rounded"
+            className="form-control shadow rounded inputStyle"
             id="passwordInput"
             placeholder="Введите ваш пароль:"
             required
           />
         </label>
 
-        <button type="submit" className="btn btn-primary shadow rounded">
+        <button type="submit" className="btn btn-primary shadow rounded buttonStyle">
           Войти
         </button>
       </form>
       <hr />
-      <h3 style={{ textAlign: 'center' }} className="regMsg"> </h3>
+      <h3 style={{ textAlign: 'center' }} className="regMsg">
+        {' '}
+      </h3>
     </Layout>
   );
 };

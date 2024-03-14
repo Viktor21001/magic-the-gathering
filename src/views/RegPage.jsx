@@ -6,17 +6,20 @@ module.exports = function Register({}) {
     <Layout>
       <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js" />
       <script defer src="/js/reg.js" />
-      <h3 style={{ textAlign: 'center' }} className="hTag">
+      <h3
+        style={{ textAlign: 'center', color: '#fff', marginBottom: '20px' }}
+        className="hTag"
+      >
         Введите данные для регистрации:
       </h3>
       <hr />
-      <form action="/reg" method="POST" id="regForm">
+      <form action="/reg" method="POST" id="regForm" className="formStyle">
         <label htmlFor="regInput" className="form-label">
           Логин
           <input
             name="login"
             type="text"
-            className="form-control shadow rounded"
+            className="form-control shadow rounded inputStyle"
             id="regInput"
             placeholder="Введите ваш логин:"
             required
@@ -28,7 +31,7 @@ module.exports = function Register({}) {
           <input
             name="email"
             type="email"
-            className="form-control shadow rounded"
+            className="form-control shadow rounded inputStyle"
             id="regEmailInput"
             placeholder="Введите вашу почту:"
             required
@@ -40,7 +43,7 @@ module.exports = function Register({}) {
           <input
             required
             name="city"
-            className="form-control shadow rounded"
+            className="form-control shadow rounded inputStyle"
             id="cityInput"
             placeholder="Введите ваш город:"
             list="cities"
@@ -58,14 +61,17 @@ module.exports = function Register({}) {
           <input
             name="password"
             type="password"
-            className="form-control shadow rounded"
+            className="form-control shadow rounded inputStyle"
             id="regPassInput"
             placeholder="Введите ваш пароль:"
             required
           />
         </label>
 
-        <button type="submit" className="btn btn-primary shadow rounded">
+        <button
+          type="submit"
+          className="btn btn-primary shadow rounded buttonStyle"
+        >
           Зарегистрироваться
         </button>
       </form>
