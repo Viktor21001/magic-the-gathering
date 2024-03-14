@@ -6,7 +6,7 @@ function UserCard({ card, login }) {
   return (
     <div className="userCard">
       <img
-        src={card.cardImg.length > 10 ? card.cardImg : testCard}
+        src={card.cardImg}
         alt={card.cardName}
         style={{
           width: '300px',

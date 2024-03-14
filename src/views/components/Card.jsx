@@ -8,7 +8,7 @@ function Card({ card, login }) {
     <div className="cardsPage">
       {/* Левая часть: Изображение карточки */}
       <img
-        src={testCard}
+        src={card.cardImg}
         alt={card.cardName}
         style={{
           width: '300px',

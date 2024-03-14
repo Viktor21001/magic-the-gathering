@@ -7,7 +7,12 @@ module.exports = function UserPage({ login, userCards }) {
   return (
     <Layout login={login}>
       <div className="addCard">
-        <form className="cardCreate">
+        <form
+          className="cardCreate"
+          method="POST"
+          action="/cards/new"
+          encType="multipart/form-data"
+        >
           <p className="msg"> </p>
           <label htmlFor="cardName">
             Название
@@ -34,7 +39,7 @@ module.exports = function UserPage({ login, userCards }) {
           <label htmlFor="cardImg">
             Прикрепить изображение карты
             <br />
-            <input type="text" name="cardImg" required />
+            <input type="file" name="cardImg" multiple />
           </label>
 
           <button className="cardAddBtn" type="submit">

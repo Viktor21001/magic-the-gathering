@@ -8,7 +8,7 @@ function Card({ basket }) {
   return (
     <div className="oneCard">
       <img
-        src={testCard}
+        src={basket.Card.cardImg}
         alt={basket.Card.cardName}
         style={{
           width: '300px',
