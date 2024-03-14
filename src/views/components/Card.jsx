@@ -10,11 +10,6 @@ function Card({ card, login }) {
       <img
         src={card.cardImg}
         alt={card.cardName}
-        style={{
-          width: '300px',
-          height: '420px',
-          borderRadius: '13px',
-        }}
       />
       {/* Правая часть: Детали карточки */}
       <div className="card-details formStyle">

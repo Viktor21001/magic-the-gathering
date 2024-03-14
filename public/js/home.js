@@ -27,12 +27,12 @@ search.addEventListener('submit', async (e) => {
             borderRadius: '13px',
           }}
         />
-          <div class="card-details">
+          <div class="card-details formStyle">
             <h4>${result[i].cardName}</h4>
             <p>Город: ${result[i].User.city}</p>
             <p>Цена: ${result[i].cardPrice}</p>
             <p>Состояние: ${result[i].wear}</p>
-            <button data-card=${result[i].id} className="buyBtn" type="button">
+            <button data-card=${result[i].id} class="buyBtn buttonStyle" type="button">
               Купить
             </button>
           </div>
@@ -70,12 +70,12 @@ filter.addEventListener('submit', async (e) => {
             borderRadius: '13px',
           }}
         />
-          <div class="card-details">
+          <div class="card-details formStyle">
             <h4>${result[i].cardName}</h4>
             <p>Город: ${result[i].User.city}</p>
             <p>Цена: ${result[i].cardPrice}</p>
             <p>Состояние: ${result[i].wear}</p>
-            <button data-card=${result[i].id} className="buyBtn" type="button">
+            <button data-card=${result[i].id} class="buyBtn buttonStyle" type="button">
               Купить
             </button>
           </div>
