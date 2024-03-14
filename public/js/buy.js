@@ -25,11 +25,8 @@ cardBayBtn.addEventListener('click', async () => {
       // console.log("🚀 ~ cardBayBtn.addEventListener ~ emails:", emails)
 
       // basketcont.remove();
-      basketcont.innerHTML =
-        'Спасибо, за покупку, товары направлены покупателям ';
+      basketcont.innerHTML = 'Спасибо, за покупку, товары направлены';
       cardBayBtn.innerHTML = 'Корзина пустая ';
-
-      await transporterDel.sendMail(mailOptionsDel);
     }
   } catch (error) {
     console.log(error);
