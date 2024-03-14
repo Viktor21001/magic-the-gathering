@@ -90,23 +90,26 @@ router.delete('/', async (req, res) => {
       // console.log('=====>>>>', card.get({ plain: true }));
     });
     // console.log('=====>>>>', emails);
+    if (emails.length) {
+      const transporterDel = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'rusfat16rus@gmail.com',
+          pass: 'tavc sliw tezm lpqk',
+        },
+      });
 
-    const transporterDel = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'rusfat16rus@gmail.com',
-        pass: 'tavc sliw tezm lpqk',
-      },
-    });
+      const mailOptionsDel = {
+        from: 'rusfat16rus@gmail.com',
+        to: emails,
+        subject: 'Покупка',
+        text: 'Ваша карточка куплена пользователем',
+      };
 
-    const mailOptionsDel = {
-      from: 'rusfat16rus@gmail.com',
-      to: emails,
-      subject: 'Покупка',
-      text: 'Ваша карточка куплена пользователем',
-    };
-
-    transporterDel.sendMail(mailOptionsDel);
+      transporterDel.sendMail(mailOptionsDel);
+    } else {
+      console.log('В корзине нет товаров');
+    }
 
     // await Basket.destroy({ where: { userId } });
 
