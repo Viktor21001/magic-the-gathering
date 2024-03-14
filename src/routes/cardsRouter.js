@@ -3,26 +3,39 @@ const router = require('express').Router();
 const { Op } = require('sequelize');
 const Main = require('../views/Main');
 const renderTemplate = require('../lib/renderTemplate');
+const upload = require('../lib/multerUpload');
 
 const { User, Card } = require('../../db/models');
 
-router.post('/new', async (req, res) => {
-  const { userId } = req.session;
+router.post('/new', upload.single('cardImg'), async (req, res) => {
+  const imgPath = `/media/input/${req.file.originalname}`;
+  const { userId, login} = req.session;
   const {
-    cardName, cardPrice, wear, cardImg,
+    cardName, cardPrice, wear,
   } = req.body;
+  console.log(req.file);
   try {
     const newCard = await Card.create({
       cardName,
       cardPrice,
       wear,
-      cardImg,
+      cardImg: imgPath,
       seller: userId,
     });
     const user = await User.findByPk(userId);
-    res.json({ newCard, user });
+    res.redirect(`/user/${login}`);
   } catch (error) {
     console.log('Ошибка создания карточки', error);
+    res.sendStatus(500);
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const cards = await Card.findAll();
+    res.json(cards);
+  } catch (error) {
+    console.log('Ошибка получения карточек', error);
     res.sendStatus(500);
   }
 });

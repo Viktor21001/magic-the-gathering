@@ -32,6 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(process.cwd(), 'public')));
+// app.use('input', path.join(__dirname, 'input'));
 app.use(session(sessionConfig));
 dbConnectionCheck();
 
