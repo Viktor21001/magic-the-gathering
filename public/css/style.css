@@ -127,6 +127,7 @@
 .cardContainer,
 .basketContainer {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
   gap: 40px;
