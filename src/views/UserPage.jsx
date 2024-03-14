@@ -8,7 +8,7 @@ module.exports = function UserPage({ login, userCards }) {
     <Layout login={login}>
       <div className="addCard">
         <form
-          className="cardCreate"
+          className="cardCreate formStyle"
           method="POST"
           action="/cards/new"
           encType="multipart/form-data"
@@ -17,19 +17,29 @@ module.exports = function UserPage({ login, userCards }) {
           <label htmlFor="cardName">
             Название
             <br />
-            <input type="text" name="cardName" required />
+            <input
+              type="text"
+              name="cardName"
+              className="inputStyle"
+              required
+            />
           </label>
 
           <label htmlFor="cardPrice">
             Цена
             <br />
-            <input type="text" name="cardPrice" required />
+            <input
+              type="text"
+              name="cardPrice"
+              className="inputStyle"
+              required
+            />
           </label>
 
           <label htmlFor="wear">
             Степень изношенности
             <br />
-            <select name="wear">
+            <select name="wear" className="inputStyle">
               <option>Идеальное</option>
               <option>Есть незначительные повреждения</option>
               <option>Есть повреждения</option>
@@ -39,10 +49,11 @@ module.exports = function UserPage({ login, userCards }) {
           <label htmlFor="cardImg">
             Прикрепить изображение карты
             <br />
-            <input type="file" name="cardImg" multiple />
+            <input type="file" name="cardImg" className="inputStyle" multiple />
+
           </label>
 
-          <button className="cardAddBtn" type="submit">
+          <button className="cardAddBtn buttonStyle" type="submit">
             Создать
           </button>
         </form>

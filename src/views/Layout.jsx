@@ -40,7 +40,7 @@ module.exports = function Layout({ children, login }) {
       </head>
       <Navbar login={login} />
       {/* //! Запилил сюда задний фон боди. Если что, убрать!!! */}
-      <body>
+      <body className='mainbody'>
         <div className="bodyMainContent">{children}</div>
       </body>
       <footer className="footer" style={{ position: 'relative' }}>
