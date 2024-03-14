@@ -81,30 +81,9 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-router.get('/city/:city', async (req, res) => {
-  const { city } = req.params;
-  const { login } = req.session;
-  try {
-    const cardInCity = await Card.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['city'],
-          where: { city },
-        },
-      ],
-    });
-    renderTemplate(Main, { login, cards: cardInCity }, res);
-    // res.json(cardInCity);
-  } catch (error) {
-    console.log('Ошибка поиска карточек по городу карточки', error);
-    res.sendStatus(500);
-  }
-});
-
 router.get('/title/:string', async (req, res) => {
   const { string } = req.params;
-  const { login } = req.session;
+  // const { login } = req.session;
   try {
     const cardWithName = await Card.findAll({
       where: {
@@ -119,8 +98,29 @@ router.get('/title/:string', async (req, res) => {
         },
       ],
     });
-    renderTemplate(Main, { login, cards: cardWithName }, res);
-    // res.json(cardWithName);
+    if (cardWithName) {
+      res.json(cardWithName);
+    }
+  } catch (error) {
+    console.log('Ошибка поиска карточек по городу карточки', error);
+    res.sendStatus(500);
+  }
+});
+
+router.get('/cities/:city', async (req, res) => {
+  const { city } = req.params;
+  try {
+    const cardInCity = await Card.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['city'],
+          where: { city },
+        },
+      ],
+    });
+    console.log(cardInCity);
+    res.json(cardInCity);
   } catch (error) {
     console.log('Ошибка поиска карточек по городу карточки', error);
     res.sendStatus(500);
