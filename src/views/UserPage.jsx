@@ -7,24 +7,34 @@ module.exports = function UserPage({ login, userCards }) {
   return (
     <Layout login={login}>
       <div className="addCard">
-        <form className="cardCreate">
+        <form className="cardCreate formStyle">
           <p className="msg"> </p>
           <label htmlFor="cardName">
             Название
             <br />
-            <input type="text" name="cardName" required />
+            <input
+              type="text"
+              name="cardName"
+              className="inputStyle"
+              required
+            />
           </label>
 
           <label htmlFor="cardPrice">
             Цена
             <br />
-            <input type="text" name="cardPrice" required />
+            <input
+              type="text"
+              name="cardPrice"
+              className="inputStyle"
+              required
+            />
           </label>
 
           <label htmlFor="wear">
             Степень изношенности
             <br />
-            <select name="wear">
+            <select name="wear" className="inputStyle">
               <option>Идеальное</option>
               <option>Есть незначительные повреждения</option>
               <option>Есть повреждения</option>
@@ -34,10 +44,10 @@ module.exports = function UserPage({ login, userCards }) {
           <label htmlFor="cardImg">
             Прикрепить изображение карты
             <br />
-            <input type="text" name="cardImg" required />
+            <input type="text" name="cardImg" className="inputStyle" required />
           </label>
 
-          <button className="cardAddBtn" type="submit">
+          <button className="cardAddBtn buttonStyle" type="submit">
             Создать
           </button>
         </form>
