@@ -1,7 +1,7 @@
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 300 to 700
 
-.comfortaa-<uniquifier > {
+.comfortaa-<uniquifier> {
   font-family: 'Comfortaa', sans-serif;
   font-optical-sizing: auto;
   font-weight: <weight>;
@@ -214,3 +214,35 @@ body {
   background: #ffffffa4;
   cursor: pointer;
 }
+/* -------------!!!!!!!!!!!!!!!!!!---------- */
+.btn-card-bay {
+  display: block;
+  width: 200px;
+  height: 50px;
+  background-color: #46a034;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.btn-card-bay:hover {
+  background-color: #e25d11;
+}
+
+.basket-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.basketContainer {
+  margin-bottom: 20px;
+}
+
+/* --------------------------------2222222222222222222222--------------------- */
+
