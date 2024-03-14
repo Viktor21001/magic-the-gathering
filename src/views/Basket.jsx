@@ -12,12 +12,13 @@ module.exports = function BasketPage({ login, baskets }) {
           ))}
         </div>
 
-        <button type="submit" id="del-card" className="btn-card-del">
+        <button type="submit" id="bay-card" className="btn-card-bay">
           Купить
         </button>
       </div>
 
       <script defer src="/js/basket.js" />
+      <script defer src="/js/buy.js" />
     </Layout>
   );
 };

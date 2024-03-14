@@ -1,7 +1,7 @@
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 300 to 700
 
-.comfortaa-<uniquifier > {
+.comfortaa-<uniquifier> {
   font-family: 'Comfortaa', sans-serif;
   font-optical-sizing: auto;
   font-weight: <weight>;
@@ -124,7 +124,8 @@
   border-color: #006089 !important;
 }
 
-.cardContainer, .basketContainer {
+.cardContainer,
+.basketContainer {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -132,9 +133,10 @@
   padding: 40px;
 }
 
-.cardsPage, .userCard {
+.cardsPage,
+.userCard {
   display: flex;
- flex-direction: column;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   /* gap: 30px; */
@@ -143,7 +145,8 @@
   /* width: 900px; */
 }
 
-.card-details, .cardDetails {
+.card-details,
+.cardDetails {
   border-radius: 13px;
   /* padding: 20px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -177,7 +180,8 @@ body {
   justify-content: space-around;
 }
 
-#loginForm, #regForm {
+#loginForm,
+#regForm {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -185,7 +189,8 @@ body {
   margin-right: 30%;
 }
 
-.filter, .search {
+.filter,
+.search {
   margin-bottom: 1rem;
   padding: 0.375rem 0.75rem;
   background: #ffffffa4;
@@ -195,7 +200,8 @@ body {
   border-radius: 7px;
 }
 
-.btnSearch, .btnFilter {
+.btnSearch,
+.btnFilter {
   border: none;
   outline: none;
   border-radius: 0px 10px 10px 0px !important;
@@ -205,3 +211,35 @@ body {
   background: #ffffffa4;
   cursor: pointer;
 }
+/* -------------!!!!!!!!!!!!!!!!!!---------- */
+.btn-card-bay {
+  display: block;
+  width: 200px;
+  height: 50px;
+  background-color: #46a034;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.btn-card-bay:hover {
+  background-color: #e25d11;
+}
+
+.basket-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.basketContainer {
+  margin-bottom: 20px;
+}
+
+/* --------------------------------2222222222222222222222--------------------- */
+
