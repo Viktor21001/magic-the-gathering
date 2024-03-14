@@ -295,11 +295,12 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .btn-card-bay:hover {
   background-color: #704316;
+  margin: 10px;
 }
 
 .basket-main {
