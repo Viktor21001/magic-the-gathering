@@ -40,8 +40,8 @@ module.exports = function UserPage({ login, userCards }) {
             Степень изношенности
             <br />
             <select name="wear" className="inputStyle">
-              <option>Идеальное</option>
-              <option>Есть незначительные повреждения</option>
+              <option>Новая</option>
+              <option>Хорошая</option>
               <option>Есть повреждения</option>
             </select>
           </label>
@@ -49,7 +49,7 @@ module.exports = function UserPage({ login, userCards }) {
           <label htmlFor="cardImg">
             Прикрепить изображение карты
             <br />
-            <input type="file" name="cardImg" className="inputStyle" multiple />
+            <input type="file" name="cardImg" className="inputStyle" multiple required />
 
           </label>
 
