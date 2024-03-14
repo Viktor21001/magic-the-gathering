@@ -19,7 +19,7 @@ function Card({ basket }) {
 
       <div
         // id={`card-${card.id}`}
-        className="card-details"
+        className="card-details formStyle"
       >
         <h3>Название: {basket.Card.cardName}</h3>
         <p>Город: {basket.Card.User.city}</p>
@@ -29,7 +29,7 @@ function Card({ basket }) {
           data-cardid={basket.cardId}
           data-basketid={basket.id}
           type="button"
-          className="card-basket-delete"
+          className="card-basket-delete buttonStyle"
         >
           Удалить из корзины
         </button>
